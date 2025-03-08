@@ -1,24 +1,26 @@
-
 import { useState, useEffect } from 'react';
 
-function useOnlineStatus() {
-  const [isOnline, setIsOnline] = useState(navigator.onLine);
+const useOnlineStatus = () => {
+  const [isOnline, setIsOnline] = useState(typeof navigator !== 'undefined' && navigator.onLine);
 
   useEffect(() => {
-    function handleNetworkChange() {
-      setIsOnline(navigator.onLine);
+    const handleOnline = () => setIsOnline(true);
+    const handleOffline = () => setIsOnline(false);
+
+    if (typeof window !== 'undefined') {
+      window.addEventListener('online', handleOnline);
+      window.addEventListener('offline', handleOffline);
     }
 
-    window.addEventListener('online', handleNetworkChange);
-    window.addEventListener('offline', handleNetworkChange);
-
     return () => {
-      window.removeEventListener('online', handleNetworkChange);
-      window.removeEventListener('offline', handleNetworkChange);
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('online', handleOnline);
+        window.removeEventListener('offline', handleOffline);
+      }
     };
   }, []);
 
   return isOnline;
-}
+};
 
 export default useOnlineStatus;

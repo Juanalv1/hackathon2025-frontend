@@ -365,7 +365,6 @@ const PetComponent = ({ pet, setPet, handleCreatePet }) => {
           <p className='text-red-500 text-xl bg-amber-300 px-4 rounded-lg'>Estas desconectado de la red</p>
           <button className='bg-blue-500 text-white' onClick={() => setShowRequestQueue(true)}>Mostrar cola de solicitudes</button>
         </div>
-
       </>)}
       {!isOnline && showRequestQueue && (<RequestQueue />)
       }
