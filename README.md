@@ -1,2 +1,2 @@
 # hackathon2025-frontend
-¡Revisa la sección de Wiki!
+Juan Alvarado, CI 31710848

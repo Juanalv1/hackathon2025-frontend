@@ -2,6 +2,7 @@
   "name": "hackathon2025-frontend",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://hackaton.corpoeureka.net",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -9,15 +10,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "lucide-react": "^0.479.0",
+    "next": "15.2.1",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "next": "15.2.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4"
   }
 }
